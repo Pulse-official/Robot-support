@@ -12,6 +12,8 @@ The problem: How can you provide effective support for houndreds of clients at o
 * [Prompting](#prompting)
   * Practices
   * Instructions
+* [Reducing costs even further](#reducing-costs-even-further)
+  * History limiting
  
 # Introduction
 
@@ -66,3 +68,10 @@ These are the parts of the business, aka Word:
 Word is an application developed by Microsoft with the intention of making it easier to write documents.
 Some features of word include...
 ```
+
+# Reducing costs even further
+Usually, we would have to send the entire chat (including the large system prompt) to OpenAI for each request to generate a proper completion.\
+This means the cost would exponentially increase as the chat grows larger.\
+To stop this from happening, we can limit how many messages are sendt to the api by slicing off messages that are either older than a certain timestamp, or when the message count has gone past a threshold.\
+
+> Todo - Example
