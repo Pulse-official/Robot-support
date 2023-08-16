@@ -12,13 +12,12 @@ The problem: How can you provide effective support for houndreds of clients at o
 * [Prompting](#prompting)
   * Practices.
   * Instructions.
-  * Improvements.
+  * Fundamental prompts.
 * [Reducing costs even further](#reducing-costs-even-further)
   * History limiting.
 * [The chicken test](#the-chicken-test)
  
 # Introduction
-
 The idea of using an AI-based support robot is to provide a way to answer customer questions and resolve issues quickly and efficiently. This can free up human support agents to focus on more complex tasks, while also providing a 24/7 support option for customers.
 
 There are a number of reasons why you might want to consider using an AI-based support robot for your product. These include:
@@ -33,13 +32,14 @@ In this project we will be focusing on C#, however you can use whatever language
 While setting up a connection between my application and OpenAI, I have figured out that there are very few libraries that are up to date with OpenAI's API.\
 As a result of that, we will be focusing on a homebrew solution.
 
-Gists:
+## Gists
 * [OpenAI API Wrapper](https://gist.github.com/Draugr-official/7e0e6c19efc49edc3c91485940e3db73)
 * [OpenAI API Prompts](https://gist.github.com/Draugr-official/2e84eebb376685efd38d1ee9df6f8000)
 
 # Prompting
 Developing a good system prompt is the essential part in creating a good GPT based support robot.\
 
+## Practices
 Here are some points you should focus on when writing a system prompt:
 * Explain the tasks in first person. "I will do..." etc.
 * Expand your sample size. Optimally, a prompt should be atleast 1000 tokens.
@@ -48,6 +48,7 @@ Here are some points you should focus on when writing a system prompt:
 * Show some simple examples of a conversation between the robot and the client.
 * Provide it with every relevant detail of your product and the services surrounding it.
 
+## Instructions
 Given these points, a good system prompt would usually be constructed like so:
 ```
 I am a support specialist working to help the client, who are having issues with the application 'Word'.
@@ -71,6 +72,7 @@ Word is an application developed by Microsoft with the intention of making it ea
 Some features of word include...
 ```
 
+## Fundamental prompts
 It is generally good practice to not rely on rulesets, but to instead structure the system prompt so it fundementally refuses to answer off-topic questions.\
 We can change how the AI works fundamentally by changing up the initial line where we tell the bot what it is, like in the example below.\
 
@@ -86,6 +88,9 @@ I am a support specialist trained to only answer questions about the application
 
 
 # Reducing costs even further
+There are a couple of ways we can reduce the cost when deploying to a large userbase.
+
+## History limiting
 Usually, we would have to send the entire chat (including the large system prompt) to OpenAI for each request to generate a proper completion.\
 This means the cost would exponentially increase as the chat grows larger.\
 To stop this from happening, we can limit how many messages are sendt to the api by slicing off messages that are either older than a certain timestamp, or when the message count has gone past a threshold.\
