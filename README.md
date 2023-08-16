@@ -83,6 +83,10 @@ if(Messages.Count > 7)
 }
 ```
 
+Here is a visual example of before (09 Aug) and after implimenting history limiting.
+
+![image](https://github.com/Pulse-official/Robot-support/assets/57600814/56dc9034-cf91-476a-8b8e-c64f89f0ccf9)
+
 # The chicken test
 This test is something we use when we want to see if a support bot can stick to its guidelines and provide/hold back information depending on its instructions.\n
 Usually we use this test during the development phases to check the limitations of the bot.\
