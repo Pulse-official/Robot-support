@@ -70,6 +70,20 @@ Word is an application developed by Microsoft with the intention of making it ea
 Some features of word include...
 ```
 
+It is generally good practice to not rely on rulesets, but to instead structure the system prompt so it fundementally refuses to answer off-topic questions.\
+We can change how the AI works fundamentally by changing up the initial line where we tell the bot what it is, like in the example below.\
+
+Initial line before.
+```
+I am a support specialist working to help the client, who are having issues with the application 'Word'.
+```
+
+Initial line after.
+```
+I am a support specialist trained to only answer questions about the application 'Word'.
+```
+
+
 # Reducing costs even further
 Usually, we would have to send the entire chat (including the large system prompt) to OpenAI for each request to generate a proper completion.\
 This means the cost would exponentially increase as the chat grows larger.\
