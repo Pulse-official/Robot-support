@@ -4,16 +4,17 @@ The problem: How can you provide effective support for houndreds of clients at o
 
 ### Table of Contents
 * [Introduction](#introduction)
-  * The idea
+  * The idea.
   * Why?
 * [Setting up](#setting-up)
-  * Prerequisites
-  * Gists
+  * Prerequisites.
+  * Gists.
 * [Prompting](#prompting)
-  * Practices
-  * Instructions
+  * Practices.
+  * Instructions.
+  * Improvements.
 * [Reducing costs even further](#reducing-costs-even-further)
-  * History limiting
+  * History limiting.
 * [The chicken test](#the-chicken-test)
  
 # Introduction
